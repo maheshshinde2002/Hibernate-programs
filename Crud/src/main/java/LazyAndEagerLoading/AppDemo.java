@@ -38,6 +38,7 @@ import java.util.List;
 
             Session session2 = factory.openSession();
             Employee1 emp = session2.get(Employee1.class, 201);
+
             System.out.println("Employee fetched addresses not loaded");
 
             System.out.println("Employee Name- " + emp.getName());

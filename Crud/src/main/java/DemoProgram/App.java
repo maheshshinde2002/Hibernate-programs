@@ -1,13 +1,16 @@
 package DemoProgram;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+
+//HERE WE PERFORMED CRUID OPERATION
+
 
 public class App {
         public static void main(String[] args) throws IOException {
@@ -20,20 +23,20 @@ public class App {
 //            emp.setBonusAmount(5000.00);  // transient field, not stored in DB
 //
 //            EmployeeData emp1 = new EmployeeData();
-//            emp.setEmpName("akash shinde");
-//            emp.setDepartment("Development");
-//            emp.setSalary(80000.75);
-//            emp.setJoiningDate(new Date());
-//            emp.setBonusAmount(6000.00);  // transient field, not stored in DB
+//            emp1.setEmpName("akash shinde");
+//            emp1.setDepartment("Development");
+//            emp1.setSalary(80000.75);
+//            emp1.setJoiningDate(new Date());
+//            emp1.setBonusAmount(6000.00);  // transient field, not stored in DB
 
            Configuration cfg = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(EmployeeData.class);
             SessionFactory factory = cfg.buildSessionFactory();
             Session session = factory.openSession();
 //
            Transaction tx = session.beginTransaction();
-//
-//            session.persist(emp);
-//            session.persist(emp1);
+////
+//           session.persist(emp);
+//                       session.persist(emp1);
   //         tx.commit();
 //
 
@@ -58,10 +61,21 @@ public class App {
 //            session.merge(e3);
 
 
+//
+//            //delete data
+//            EmployeeData e4=session.get(EmployeeData.class,2);
+//            session.remove(e4);
+//
 
-            //delete data
-            EmployeeData e4=session.get(EmployeeData.class,1);
-            session.remove(e4);
+
+//   first level caching here for first it hit the database but when we accces again then it does
+//   not hit the database it will take data from the cache
+            EmployeeData emp1 = session.get(EmployeeData.class, 2);
+            System.out.println(emp1);
+
+            EmployeeData emp2 = session.get(EmployeeData.class, 2);
+            System.out.println(emp2);
+
             tx.commit();
             session.close();
             factory.close();

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/HibernatePrograms.iml" filepath="$PROJECT_DIR$/.idea/HibernatePrograms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MavenProject/MavenProject.iml" filepath="$PROJECT_DIR$/MavenProject/MavenProject.iml" />
     </modules>
   </component>
 </project>
