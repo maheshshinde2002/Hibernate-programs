@@ -10,12 +10,16 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         SessionFactory factory=HibernateUtil.getSessionFactory();
-        Address d=new Address(101,"permenent","Delhi");
-        Address d1=new Address(102,"Office","pune");
+        Address d=new Address(101,"pune","permenent");
+        Address d1=new Address(102,"delhi","Office");
+        Address d2=new Address(103,"nashik","home");
+
 
         List<Address> list =new ArrayList<>();
         list.add(d);
         list.add(d1);
+        list.add(d2);
+
 
         Empdetls e=new Empdetls();
         e.setId(201);
@@ -24,8 +28,6 @@ public class App {
 
         Session session=factory.openSession();
         Transaction tx=session.beginTransaction();
-       session.persist(d);
-        session.persist(d1);
 
         session.persist(e);
         System.out.println("Insert successfully");

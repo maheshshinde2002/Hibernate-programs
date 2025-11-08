@@ -9,20 +9,27 @@ public class AppMain {
     SessionFactory factory =HibernateUtil.getSessionFactory();
 
     Address d=new Address();
-    d.setId(101);
     d.setAddess("Odisha");
 
 
     Empdetls e= new Empdetls();
-    e.setId(201);
     e.setName("Pavy");
     e.setAddress(d);
 
+
+        Address d1=new Address();
+        d1.setAddess("munnar");
+
+
+        Empdetls e1= new Empdetls();
+        e1.setName("ravi");
+        e1.setAddress(d1);
+
         Session session =factory.openSession();
         Transaction tx=session.beginTransaction();
-        session.persist(d);
-        session.persist(e);
 
+        session.persist(e);
+        session.persist(e1);
         tx.commit();
         session.close();
 

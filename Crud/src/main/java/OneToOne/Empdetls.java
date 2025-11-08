@@ -1,18 +1,19 @@
 package OneToOne;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Empdetls_2")
 public class Empdetls {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private  String name ;
 
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "a_id")
     private Address address;
 
     public Address getAddress() {

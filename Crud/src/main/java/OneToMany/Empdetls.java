@@ -1,21 +1,19 @@
 package OneToMany;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.persistence.criteria.Fetch;
 
 import java.util.List;
 
 @Entity
+@Table(name = "empdels_3")
 public class Empdetls {
 
     @Id
     private int id;
     private  String name ;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "empdetls")
     private List<Address> address;
 
     public int getId() {

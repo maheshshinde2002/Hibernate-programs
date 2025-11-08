@@ -18,6 +18,8 @@
         <mapping class="DemoProgram.EmployeeData"/>
         <mapping class="LazyAndEagerLoading.Employee1"/>
         <mapping class="LazyAndEagerLoading.Address1"/>
+        <mapping class="ManyToMany.Emp"/>
+        <mapping class="ManyToMany.Project"/>
 
 
     </session-factory>

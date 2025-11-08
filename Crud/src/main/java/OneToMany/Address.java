@@ -2,8 +2,11 @@ package OneToMany;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "address_3")
 public class Address {
 
     @Id
@@ -11,12 +14,15 @@ public class Address {
     private String  AddressType;
     private  String Address;
 
+    @ManyToOne
+    private Empdetls empdetls;
 
     public Address(int id, String address, String addressType) {
         this.id = id;
         Address = address;
         AddressType = addressType;
     }
+    public Address() { } // required by Hibernate
 
     public int getId() {
         return id;

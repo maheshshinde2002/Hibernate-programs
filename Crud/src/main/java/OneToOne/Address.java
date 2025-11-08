@@ -1,13 +1,14 @@
 package OneToOne;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Address_2")
 public class Address {
 
     @Id
- private  int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  int id;
  private  String Addess;
 
 
